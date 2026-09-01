@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+//used to connect to the Database
 @Repository
 public interface SchoolRepository extends JpaRepository<School, Long> {
     @Query("SELECT s FROM School s WHERE s.isActive=true")
