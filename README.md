@@ -1,94 +1,41 @@
-# \# Spring Boot Practice Class
+# Spring Boot Practice Class
 
-# 
+A simple Spring Boot practice project for learning backend development and REST APIs.
 
-# A Spring Boot practice project focused on building REST APIs and understanding the basic layered architecture of a Spring Boot application.
+## Technologies
 
-# 
+- Java
+- Spring Boot
+- Spring Data JPA
+- MySQL
+- Maven
 
-# \## Technologies
+## Classes
 
-# 
+- `MysqldemoApplication.java` — Main Spring Boot application
+- `School.java` — School entity
+- `SchoolController.java` — Handles School API requests
+- `SchoolService.java` — Contains business logic
+- `SchoolRepository.java` — Handles database operations
 
-# \* Java
+## Concepts Practiced
 
-# \* Spring Boot
+- REST APIs
+- CRUD operations
+- Controller, Service, and Repository layers
+- JPA / Hibernate
+- MySQL database integration
 
-# \* Spring Data JPA
+## How to Run
 
-# \* MySQL
+```bash
+mvnw spring-boot:run
+```
 
-# \* Maven
+The application runs on:
 
-# 
+`http://localhost:8080`
 
-# \## Classes
+## Purpose
 
-# 
-
-# \### Entity
-
-# 
-
-# \* `School.java` – Represents the School entity and its database structure.
-
-# 
-
-# \### Controller
-
-# 
-
-# \* `SchoolController.java` – Handles REST API requests related to schools.
-
-# 
-
-# \### Service
-
-# 
-
-# \* `SchoolService.java` – Contains the business logic for school operations.
-
-# 
-
-# \### Repository
-
-# 
-
-# \* `SchoolRepository.java` – Handles database operations using Spring Data JPA.
-
-# 
-
-# \### Main
-
-# 
-
-# \* `MysqldemoApplication.java` – Main class used to run the Spring Boot application.
-
-# 
-
-# \## Concepts Practiced
-
-# 
-
-# \* REST APIs
-
-# \* CRUD operations
-
-# \* Spring Boot layered architecture
-
-# \* Controllers, Services, Repositories, and Entities
-
-# \* Spring Data JPA
-
-# \* MySQL database integration
-
-# 
-
-# \## Purpose
-
-# 
-
-# This project was created as part of my practice in \*\*Spring Boot and backend development\*\*, focusing on understanding how different application layers work together.
-
-
-
+This project was created to practice **Spring Boot backend development** and understand how the different layers of a Spring Boot application work together.
