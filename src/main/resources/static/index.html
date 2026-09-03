@@ -1,59 +1,33 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>School Management System</title>
 
   <style>
-    /* =========================================================
-       GLASSMORPHISM SCHOOL MANAGEMENT SYSTEM
-       ========================================================= */
-
     :root {
       --bg: #eef4ff;
-      --bg-dark: #dce8ff;
-
       --glass: rgba(255, 255, 255, 0.58);
       --glass-strong: rgba(255, 255, 255, 0.75);
       --glass-soft: rgba(255, 255, 255, 0.38);
-
       --border: rgba(255, 255, 255, 0.72);
-      --border-dark: rgba(148, 163, 184, 0.22);
-
       --primary: #2563eb;
       --primary-dark: #1d4ed8;
-      --primary-light: #60a5fa;
-
       --purple: #7c3aed;
       --cyan: #06b6d4;
-
       --success: #16a34a;
       --danger: #dc2626;
-      --warning: #f59e0b;
-
       --text: #172554;
       --text-secondary: #475569;
       --muted: #64748b;
-
-      --shadow:
-              0 20px 50px rgba(37, 99, 235, 0.12);
-
-      --shadow-small:
-              0 8px 25px rgba(30, 64, 175, 0.10);
-
+      --shadow: 0 20px 50px rgba(37, 99, 235, 0.12);
+      --shadow-small: 0 8px 25px rgba(30, 64, 175, 0.10);
       --radius: 20px;
       --font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    /* =========================================================
-       RESET
-       ========================================================= */
-
-    *,
-    *::before,
-    *::after {
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -84,10 +58,6 @@
     button {
       cursor: pointer;
     }
-
-    /* =========================================================
-       BACKGROUND BLOBS
-       ========================================================= */
 
     .background-shape {
       position: fixed;
@@ -121,18 +91,12 @@
       left: 35%;
     }
 
-    /* =========================================================
-       APP LAYOUT
-       ========================================================= */
-
     .app {
       min-height: 100vh;
       display: flex;
     }
 
-    /* =========================================================
-       SIDEBAR
-       ========================================================= */
+    /* SIDEBAR */
 
     .sidebar {
       width: 250px;
@@ -142,11 +106,9 @@
       top: 0;
       padding: 22px 16px;
       z-index: 100;
-
       background: rgba(255, 255, 255, 0.52);
       backdrop-filter: blur(25px);
       -webkit-backdrop-filter: blur(25px);
-
       border-right: 1px solid var(--border);
       box-shadow: 10px 0 40px rgba(37, 99, 235, 0.07);
     }
@@ -162,20 +124,11 @@
       width: 44px;
       height: 44px;
       border-radius: 14px;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       font-size: 1.4rem;
-
-      background:
-              linear-gradient(
-                      135deg,
-                      rgba(37, 99, 235, 0.9),
-                      rgba(124, 58, 237, 0.9)
-              );
-
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(124, 58, 237, 0.9));
       color: white;
       box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
     }
@@ -183,7 +136,6 @@
     .brand-text h1 {
       font-size: 0.98rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
     }
 
     .brand-text p {
@@ -194,8 +146,7 @@
 
     .nav-title {
       padding: 0 13px;
-      margin: 10px 0 10px;
-
+      margin: 10px 0;
       font-size: 0.67rem;
       font-weight: 700;
       color: #94a3b8;
@@ -213,29 +164,15 @@
       width: 100%;
       border: 1px solid transparent;
       background: transparent;
-
       display: flex;
       align-items: center;
       gap: 13px;
-
       padding: 12px 13px;
       border-radius: 13px;
-
       color: var(--text-secondary);
       font-size: 0.86rem;
       font-weight: 500;
-
-      transition:
-              background 0.2s ease,
-              color 0.2s ease,
-              transform 0.2s ease,
-              box-shadow 0.2s ease;
-    }
-
-    nav button .nav-icon {
-      width: 20px;
-      text-align: center;
-      font-size: 1rem;
+      transition: all 0.2s ease;
     }
 
     nav button:hover {
@@ -246,18 +183,19 @@
 
     nav button.active {
       color: white;
-
-      background:
-              linear-gradient(
-                      135deg,
-                      rgba(37, 99, 235, 0.95),
-                      rgba(79, 70, 229, 0.9)
-              );
-
-      box-shadow:
-              0 8px 22px rgba(37, 99, 235, 0.25);
-
+      background: linear-gradient(
+              135deg,
+              rgba(37, 99, 235, 0.95),
+              rgba(79, 70, 229, 0.9)
+      );
+      box-shadow: 0 8px 22px rgba(37, 99, 235, 0.25);
       border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .nav-icon {
+      width: 20px;
+      text-align: center;
+      font-size: 1rem;
     }
 
     .sidebar-footer {
@@ -265,13 +203,10 @@
       bottom: 22px;
       left: 16px;
       right: 16px;
-
       padding: 13px;
       border-radius: 15px;
-
       background: rgba(255, 255, 255, 0.42);
       border: 1px solid rgba(255, 255, 255, 0.65);
-
       font-size: 0.7rem;
       color: var(--muted);
     }
@@ -293,9 +228,7 @@
       box-shadow: 0 0 10px rgba(22, 163, 74, 0.6);
     }
 
-    /* =========================================================
-       MAIN CONTENT
-       ========================================================= */
+    /* MAIN */
 
     .main-wrapper {
       margin-left: 250px;
@@ -306,17 +239,13 @@
     header {
       height: 78px;
       padding: 0 38px;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       background: rgba(255, 255, 255, 0.34);
       backdrop-filter: blur(22px);
       -webkit-backdrop-filter: blur(22px);
-
       border-bottom: 1px solid rgba(255, 255, 255, 0.65);
-
       position: sticky;
       top: 0;
       z-index: 50;
@@ -325,7 +254,6 @@
     .header-title h2 {
       font-size: 1.15rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
     }
 
     .header-title p {
@@ -338,17 +266,13 @@
       display: flex;
       align-items: center;
       gap: 8px;
-
       padding: 8px 13px;
       border-radius: 30px;
-
       background: rgba(255, 255, 255, 0.52);
       border: 1px solid rgba(255, 255, 255, 0.7);
-
       font-size: 0.74rem;
       font-weight: 600;
       color: var(--text-secondary);
-
       box-shadow: var(--shadow-small);
     }
 
@@ -361,10 +285,6 @@
       margin: 0 auto;
       padding: 34px 38px 70px;
     }
-
-    /* =========================================================
-       PANELS
-       ========================================================= */
 
     .panel {
       display: none;
@@ -387,22 +307,16 @@
       }
     }
 
-    /* =========================================================
-       GLASS CARD
-       ========================================================= */
+    /* CARDS */
 
     .card {
       background: var(--glass);
       backdrop-filter: blur(25px);
       -webkit-backdrop-filter: blur(25px);
-
       border: 1px solid var(--border);
       border-radius: var(--radius);
-
       padding: 28px;
-
       box-shadow: var(--shadow);
-
       margin-bottom: 22px;
     }
 
@@ -410,7 +324,6 @@
       font-size: 1.05rem;
       font-weight: 700;
       margin-bottom: 20px;
-      color: var(--text);
     }
 
     .card-header {
@@ -425,58 +338,41 @@
       margin-bottom: 0;
     }
 
-    /* =========================================================
-       DASHBOARD HERO
-       ========================================================= */
+    /* WELCOME */
 
     .welcome-card {
       position: relative;
       overflow: hidden;
-
       padding: 30px;
-
-      background:
-              linear-gradient(
-                      135deg,
-                      rgba(37, 99, 235, 0.88),
-                      rgba(79, 70, 229, 0.82)
-              );
-
+      background: linear-gradient(
+              135deg,
+              rgba(37, 99, 235, 0.88),
+              rgba(79, 70, 229, 0.82)
+      );
       color: white;
-
       border: 1px solid rgba(255, 255, 255, 0.35);
-
-      box-shadow:
-              0 20px 45px rgba(37, 99, 235, 0.22);
+      box-shadow: 0 20px 45px rgba(37, 99, 235, 0.22);
     }
 
     .welcome-card::after {
       content: "";
       position: absolute;
-
       width: 220px;
       height: 220px;
-
       border-radius: 50%;
-
       right: -70px;
       top: -80px;
-
       background: rgba(255, 255, 255, 0.12);
     }
 
     .welcome-card::before {
       content: "";
       position: absolute;
-
       width: 130px;
       height: 130px;
-
       border-radius: 50%;
-
       right: 120px;
       bottom: -80px;
-
       background: rgba(255, 255, 255, 0.08);
     }
 
@@ -488,7 +384,6 @@
     .welcome-card h1 {
       font-size: 1.55rem;
       margin-bottom: 7px;
-      letter-spacing: -0.03em;
     }
 
     .welcome-card p {
@@ -496,13 +391,11 @@
       opacity: 0.82;
     }
 
-    /* =========================================================
-       DASHBOARD STATS
-       ========================================================= */
+    /* STATS */
 
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 16px;
       margin: 22px 0;
     }
@@ -510,23 +403,15 @@
     .stat-card {
       background: var(--glass);
       backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-
       border: 1px solid var(--border);
       border-radius: 18px;
-
       padding: 20px;
-
       box-shadow: var(--shadow-small);
-
-      transition:
-              transform 0.2s ease,
-              box-shadow 0.2s ease;
+      transition: all 0.2s ease;
     }
 
     .stat-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 16px 35px rgba(37, 99, 235, 0.13);
     }
 
     .stat-top {
@@ -539,15 +424,11 @@
     .stat-icon {
       width: 42px;
       height: 42px;
-
       border-radius: 13px;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       font-size: 1.15rem;
-
       background: rgba(37, 99, 235, 0.10);
     }
 
@@ -572,12 +453,9 @@
     .stat-number {
       font-size: 1.7rem;
       font-weight: 750;
-      letter-spacing: -0.04em;
     }
 
-    /* =========================================================
-       QUICK ACTIONS
-       ========================================================= */
+    /* ACTIONS */
 
     .quick-actions {
       display: grid;
@@ -590,18 +468,12 @@
       border: 1px solid var(--border);
       background: var(--glass-soft);
       backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-
       border-radius: 17px;
       padding: 17px;
-
       text-align: left;
-
       box-shadow: var(--shadow-small);
-
-      transition:
-              transform 0.2s ease,
-              background 0.2s ease;
+      transition: all 0.2s ease;
+      cursor: pointer;
     }
 
     .action-card:hover {
@@ -620,9 +492,7 @@
       color: var(--text-secondary);
     }
 
-    /* =========================================================
-       FORMS
-       ========================================================= */
+    /* FORMS */
 
     .form-row {
       display: flex;
@@ -632,75 +502,46 @@
 
     label {
       display: block;
-
       font-size: 0.75rem;
       font-weight: 650;
       color: var(--text-secondary);
-
       margin-bottom: 7px;
     }
 
     input[type="text"],
-    input[type="number"] {
+    input[type="number"],
+    select {
       width: 100%;
-
       padding: 12px 14px;
-
       border: 1px solid rgba(148, 163, 184, 0.25);
       border-radius: 11px;
-
       background: rgba(255, 255, 255, 0.55);
-
       color: var(--text);
-
       font-size: 0.88rem;
-
       outline: none;
-
-      box-shadow:
-              inset 0 1px 2px rgba(15, 23, 42, 0.03);
-
-      transition:
-              border-color 0.2s ease,
-              background 0.2s ease,
-              box-shadow 0.2s ease;
+      font-family: inherit;
     }
 
-    input::placeholder {
-      color: #94a3b8;
-    }
-
-    input:focus {
+    input:focus,
+    select:focus {
       background: rgba(255, 255, 255, 0.8);
       border-color: rgba(37, 99, 235, 0.5);
-
-      box-shadow:
-              0 0 0 4px rgba(37, 99, 235, 0.09);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.09);
     }
 
-    /* =========================================================
-       BUTTONS
-       ========================================================= */
+    /* BUTTONS */
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 7px;
-
       padding: 11px 18px;
-
       border-radius: 11px;
       border: 1px solid transparent;
-
       font-size: 0.8rem;
       font-weight: 650;
-
-      transition:
-              transform 0.2s ease,
-              box-shadow 0.2s ease,
-              background 0.2s ease;
-
+      transition: all 0.2s ease;
       white-space: nowrap;
     }
 
@@ -716,52 +557,30 @@
 
     .btn-primary {
       color: white;
-
-      background:
-              linear-gradient(
-                      135deg,
-                      var(--primary),
-                      var(--purple)
-              );
-
-      box-shadow:
-              0 8px 20px rgba(37, 99, 235, 0.20);
-    }
-
-    .btn-primary:hover {
-      box-shadow:
-              0 12px 25px rgba(37, 99, 235, 0.27);
+      background: linear-gradient(
+              135deg,
+              var(--primary),
+              var(--purple)
+      );
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.20);
     }
 
     .btn-danger {
       color: white;
-
-      background:
-              linear-gradient(
-                      135deg,
-                      #ef4444,
-                      #dc2626
-              );
-
-      box-shadow:
-              0 8px 20px rgba(220, 38, 38, 0.17);
+      background: linear-gradient(
+              135deg,
+              #ef4444,
+              #dc2626
+      );
     }
 
     .btn-outline {
       color: var(--primary);
-
       background: rgba(255, 255, 255, 0.45);
-
       border-color: rgba(37, 99, 235, 0.22);
     }
 
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.75);
-    }
-
-    /* =========================================================
-       TABLE
-       ========================================================= */
+    /* TABLE */
 
     .table-wrap {
       overflow-x: auto;
@@ -772,45 +591,24 @@
       width: 100%;
       border-collapse: separate;
       border-spacing: 0;
-
       font-size: 0.79rem;
     }
 
     th {
       background: rgba(241, 245, 249, 0.62);
-
       text-align: left;
-
       padding: 13px 14px;
-
       font-size: 0.68rem;
       font-weight: 700;
-
       color: var(--muted);
-
       text-transform: uppercase;
       letter-spacing: 0.06em;
-
-      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
-    }
-
-    th:first-child {
-      border-radius: 11px 0 0 0;
-    }
-
-    th:last-child {
-      border-radius: 0 11px 0 0;
     }
 
     td {
       padding: 14px;
-
       border-bottom: 1px solid rgba(148, 163, 184, 0.13);
-
       color: var(--text-secondary);
-
-      vertical-align: middle;
-
       background: rgba(255, 255, 255, 0.24);
     }
 
@@ -818,37 +616,21 @@
       background: rgba(255, 255, 255, 0.52);
     }
 
-    tr:last-child td {
-      border-bottom: none;
-    }
-
     td:first-child {
       font-weight: 700;
       color: var(--primary);
     }
 
-    /* =========================================================
-       BADGES
-       ========================================================= */
+    /* BADGES */
 
     .badge {
       display: inline-flex;
       align-items: center;
       gap: 5px;
-
       padding: 4px 9px;
-
       border-radius: 30px;
-
       font-size: 0.68rem;
       font-weight: 700;
-    }
-
-    .badge::before {
-      content: "";
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
     }
 
     .badge-yes {
@@ -857,40 +639,27 @@
     }
 
     .badge-yes::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
       background: #16a34a;
     }
 
-    .badge-no {
-      background: rgba(220, 38, 38, 0.10);
-      color: #b91c1c;
-    }
-
-    .badge-no::before {
-      background: #dc2626;
-    }
-
-    /* =========================================================
-       ALERTS
-       ========================================================= */
+    /* ALERTS */
 
     .alert {
       margin-top: 16px;
-
       padding: 12px 15px;
-
       border-radius: 11px;
-
       font-size: 0.79rem;
       line-height: 1.5;
-
       display: none;
-
-      backdrop-filter: blur(12px);
+      white-space: pre-wrap;
     }
 
     .alert.show {
       display: block;
-      animation: fadeIn 0.2s ease;
     }
 
     .alert-success {
@@ -905,28 +674,17 @@
       color: #991b1b;
     }
 
-    .alert-info {
-      background: rgba(219, 234, 254, 0.72);
-      border: 1px solid rgba(147, 197, 253, 0.6);
-      color: #1d4ed8;
-    }
-
-    /* =========================================================
-       RESULT BOX
-       ========================================================= */
+    /* RESULT */
 
     .result-box {
       margin-top: 22px;
       display: none;
-
       padding-top: 20px;
-
       border-top: 1px solid rgba(148, 163, 184, 0.18);
     }
 
     .result-box.show {
       display: block;
-      animation: fadeIn 0.25s ease;
     }
 
     .result-title {
@@ -943,9 +701,7 @@
 
     .result-item {
       padding: 13px;
-
       border-radius: 12px;
-
       background: rgba(255, 255, 255, 0.38);
       border: 1px solid rgba(255, 255, 255, 0.58);
     }
@@ -959,13 +715,8 @@
     .result-item p {
       font-size: 0.82rem;
       font-weight: 650;
-      color: var(--text);
       word-break: break-word;
     }
-
-    /* =========================================================
-       TOOLBAR
-       ========================================================= */
 
     .toolbar {
       display: flex;
@@ -975,46 +726,25 @@
       margin-bottom: 18px;
     }
 
-    .toolbar h2 {
-      font-size: 1rem;
-      margin-bottom: 0;
-    }
-
-    /* =========================================================
-       EMPTY STATE
-       ========================================================= */
-
     .empty {
       text-align: center;
-
       padding: 50px 20px;
-
       color: var(--muted);
-
       font-size: 0.82rem;
     }
 
     .empty-icon {
       font-size: 2rem;
       margin-bottom: 10px;
-      opacity: 0.6;
     }
-
-    /* =========================================================
-       SPINNER
-       ========================================================= */
 
     .spinner {
       display: inline-block;
-
       width: 15px;
       height: 15px;
-
       border: 2px solid rgba(255, 255, 255, 0.45);
       border-top-color: white;
-
       border-radius: 50%;
-
       animation: spin 0.65s linear infinite;
     }
 
@@ -1024,27 +754,15 @@
       }
     }
 
-    /* =========================================================
-       MOBILE MENU
-       ========================================================= */
-
     .mobile-menu {
       display: none;
-
       width: 40px;
       height: 40px;
-
       border: 1px solid rgba(255, 255, 255, 0.7);
       border-radius: 11px;
-
       background: rgba(255, 255, 255, 0.5);
-
       font-size: 1.1rem;
     }
-
-    /* =========================================================
-       RESPONSIVE
-       ========================================================= */
 
     @media (max-width: 1100px) {
       .stats-grid {
@@ -1102,10 +820,6 @@
         padding: 20px;
       }
 
-      .welcome-card h1 {
-        font-size: 1.3rem;
-      }
-
       .result-grid {
         grid-template-columns: 1fr;
       }
@@ -1120,12 +834,9 @@
       }
     }
   </style>
-
 </head>
 
 <body>
-
-<!-- Background decorations -->
 
 <div class="background-shape shape-one"></div>
 <div class="background-shape shape-two"></div>
@@ -1133,11 +844,7 @@
 
 <div class="app">
 
-  ```
-  <!-- =====================================================
-       SIDEBAR
-       ===================================================== -->
-
+  <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
 
     <div class="brand">
@@ -1151,38 +858,65 @@
 
     <div class="nav-title">Main Menu</div>
 
-    <nav id="nav">
-
+    <nav>
       <button class="active" onclick="showTab('dashboard')">
         <span class="nav-icon">⌂</span>
-        <span>Dashboard</span>
+        Dashboard
       </button>
 
       <button onclick="showTab('add')">
         <span class="nav-icon">＋</span>
-        <span>Add School</span>
+        Add School
       </button>
 
       <button onclick="showTab('all')">
         <span class="nav-icon">☷</span>
-        <span>All Schools</span>
+        All Schools
       </button>
 
       <button onclick="showTab('search')">
         <span class="nav-icon">⌕</span>
-        <span>Search School</span>
+        Search School
       </button>
 
       <button onclick="showTab('update')">
         <span class="nav-icon">✎</span>
-        <span>Update School</span>
+        Update School
       </button>
 
       <button onclick="showTab('delete')">
         <span class="nav-icon">⌫</span>
-        <span>Delete School</span>
+        Delete School
+      </button>
+    </nav>
+
+    <div class="nav-title">Students</div>
+
+    <nav>
+      <button onclick="showTab('add-student')">
+        <span class="nav-icon">＋</span>
+        Add Student
       </button>
 
+      <button onclick="showTab('all-students')">
+        <span class="nav-icon">☷</span>
+        All Students
+      </button>
+
+      <button onclick="showTab('search-student')">
+        <span class="nav-icon">⌕</span>
+        Search Student
+      </button>
+
+      <button onclick="showTab('update-student')">
+        <span class="nav-icon">✎</span>
+        Update Student
+      </button>
+
+      <button onclick="showTab('delete-student')">
+        <span class="nav-icon">⌫</span>
+        Delete Student
+      </button>
     </nav>
 
     <div class="sidebar-footer">
@@ -1196,10 +930,8 @@
 
   </aside>
 
-  <!-- =====================================================
-       MAIN WRAPPER
-       ===================================================== -->
 
+  <!-- MAIN -->
   <div class="main-wrapper">
 
     <header>
@@ -1208,8 +940,7 @@
 
         <button
                 class="mobile-menu"
-                onclick="toggleSidebar()"
-                aria-label="Open menu">
+                onclick="toggleSidebar()">
           ☰
         </button>
 
@@ -1227,109 +958,147 @@
 
     </header>
 
+
     <main>
 
-      <!-- ===================================================
-           DASHBOARD
-           =================================================== -->
-
+      <!-- DASHBOARD -->
       <div class="panel active" id="panel-dashboard">
 
         <div class="card welcome-card">
 
           <div class="welcome-content">
+
             <h1>Welcome to School Manager 👋</h1>
 
             <p>
-              Manage schools, search records, update information
-              and keep your data organized.
+              Manage schools, search records,
+              update information and keep your
+              data organized.
             </p>
+
           </div>
 
         </div>
 
-        <!-- Statistics -->
 
         <div class="stats-grid">
 
           <div class="stat-card">
-
             <div class="stat-top">
               <div class="stat-icon">🏫</div>
             </div>
 
-            <div class="stat-label">Total Schools</div>
-            <div class="stat-number" id="total-schools">—</div>
+            <div class="stat-label">
+              Total Schools
+            </div>
 
+            <div class="stat-number"
+                 id="total-schools">
+              —
+            </div>
           </div>
 
-          <div class="stat-card">
 
+          <div class="stat-card">
             <div class="stat-top">
               <div class="stat-icon">✓</div>
             </div>
 
-            <div class="stat-label">Active Schools</div>
-            <div class="stat-number" id="active-schools">—</div>
+            <div class="stat-label">
+              Active Schools
+            </div>
 
+            <div class="stat-number"
+                 id="active-schools">
+              —
+            </div>
           </div>
 
-          <div class="stat-card">
 
+          <div class="stat-card">
             <div class="stat-top">
               <div class="stat-icon">✦</div>
             </div>
 
-            <div class="stat-label">Inactive Schools</div>
-            <div class="stat-number" id="inactive-schools">—</div>
+            <div class="stat-label">
+              Inactive Schools
+            </div>
 
+            <div class="stat-number"
+                 id="inactive-schools">
+              —
+            </div>
           </div>
 
-          <div class="stat-card">
 
+          <div class="stat-card">
             <div class="stat-top">
               <div class="stat-icon">⚡</div>
             </div>
 
-            <div class="stat-label">System Status</div>
-            <div class="stat-number" style="font-size:1rem;">Online</div>
+            <div class="stat-label">
+              System Status
+            </div>
 
+            <div class="stat-number"
+                 style="font-size:1rem;">
+              Online
+            </div>
+          </div>
+
+
+          <div class="stat-card">
+            <div class="stat-top">
+              <div class="stat-icon">🎓</div>
+            </div>
+
+            <div class="stat-label">
+              Total Students
+            </div>
+
+            <div class="stat-number"
+                 id="total-students">
+              —
+            </div>
           </div>
 
         </div>
 
-        <!-- Quick actions -->
 
         <div class="quick-actions">
 
-          <div class="action-card" onclick="showTab('add')">
+          <div class="action-card"
+               onclick="showTab('add')">
             <div class="action-icon">➕</div>
             <p>Add School</p>
           </div>
 
-          <div class="action-card" onclick="showTab('all')">
+          <div class="action-card"
+               onclick="showTab('all')">
             <div class="action-icon">📋</div>
             <p>View Schools</p>
           </div>
 
-          <div class="action-card" onclick="showTab('search')">
+          <div class="action-card"
+               onclick="showTab('search')">
             <div class="action-icon">🔍</div>
             <p>Search</p>
           </div>
 
-          <div class="action-card" onclick="showTab('update')">
+          <div class="action-card"
+               onclick="showTab('update')">
             <div class="action-icon">✏️</div>
             <p>Update</p>
           </div>
 
-          <div class="action-card" onclick="showTab('delete')">
+          <div class="action-card"
+               onclick="showTab('delete')">
             <div class="action-icon">🗑️</div>
             <p>Delete</p>
           </div>
 
         </div>
 
-        <!-- Schools table -->
 
         <div class="card">
 
@@ -1345,22 +1114,21 @@
 
           </div>
 
-          <div class="table-wrap">
-            <div id="dash-table-container">
-              <div class="empty">
-                Loading schools…
-              </div>
+          <div class="table-wrap"
+               id="dash-table-container">
+
+            <div class="empty">
+              Loading schools…
             </div>
+
           </div>
 
         </div>
 
       </div>
 
-      <!-- ===================================================
-           ADD SCHOOL
-           =================================================== -->
 
+      <!-- ADD -->
       <div class="panel" id="panel-add">
 
         <div class="card">
@@ -1370,28 +1138,24 @@
           <div class="form-row">
 
             <div>
-              <label for="add-name">
-                School Name
-              </label>
+              <label>School Name</label>
 
               <input
                       type="text"
                       id="add-name"
-                      placeholder="e.g. Sultan Qaboos University"
-              />
+                      placeholder="e.g. Sultan Qaboos University">
             </div>
 
+
             <div>
-              <label for="add-location">
-                Location
-              </label>
+              <label>Location</label>
 
               <input
                       type="text"
                       id="add-location"
-                      placeholder="e.g. Muscat"
-              />
+                      placeholder="e.g. Muscat, Oman">
             </div>
+
 
             <div>
               <button
@@ -1404,16 +1168,16 @@
 
           </div>
 
-          <div class="alert" id="add-alert"></div>
+          <div class="alert"
+               id="add-alert">
+          </div>
 
         </div>
 
       </div>
 
-      <!-- ===================================================
-           ALL SCHOOLS
-           =================================================== -->
 
+      <!-- ALL -->
       <div class="panel" id="panel-all">
 
         <div class="card">
@@ -1430,14 +1194,12 @@
 
           </div>
 
-          <div class="table-wrap">
+          <div
+                  class="table-wrap"
+                  id="all-table-container">
 
-            <div id="all-table-container">
-
-              <div class="empty">
-                Click Refresh to load schools.
-              </div>
-
+            <div class="empty">
+              Click Refresh to load schools.
             </div>
 
           </div>
@@ -1446,10 +1208,8 @@
 
       </div>
 
-      <!-- ===================================================
-           SEARCH SCHOOL
-           =================================================== -->
 
+      <!-- SEARCH -->
       <div class="panel" id="panel-search">
 
         <div class="card">
@@ -1460,16 +1220,13 @@
 
             <div>
 
-              <label for="search-id">
-                School ID
-              </label>
+              <label>School ID</label>
 
               <input
                       type="number"
                       id="search-id"
                       placeholder="e.g. 3"
-                      min="1"
-              />
+                      min="1">
 
             </div>
 
@@ -1485,9 +1242,13 @@
 
           </div>
 
-          <div class="alert" id="search-alert"></div>
+          <div class="alert"
+               id="search-alert">
+          </div>
 
-          <div class="result-box" id="search-result">
+
+          <div class="result-box"
+               id="search-result">
 
             <div class="result-title">
               School Details
@@ -1511,18 +1272,8 @@
               </div>
 
               <div class="result-item">
-                <label>Active</label>
+                <label>Status</label>
                 <p id="sr-active"></p>
-              </div>
-
-              <div class="result-item">
-                <label>Created Date</label>
-                <p id="sr-created"></p>
-              </div>
-
-              <div class="result-item">
-                <label>Updated Date</label>
-                <p id="sr-updated"></p>
               </div>
 
             </div>
@@ -1533,10 +1284,8 @@
 
       </div>
 
-      <!-- ===================================================
-           UPDATE SCHOOL
-           =================================================== -->
 
+      <!-- UPDATE -->
       <div class="panel" id="panel-update">
 
         <div class="card">
@@ -1547,46 +1296,40 @@
 
             <div>
 
-              <label for="update-id">
-                School ID
-              </label>
+              <label>School ID</label>
 
               <input
                       type="number"
                       id="update-id"
                       placeholder="e.g. 3"
-                      min="1"
-              />
+                      min="1">
 
             </div>
 
+
             <div>
 
-              <label for="update-name">
-                New School Name
-              </label>
+              <label>New School Name</label>
 
               <input
                       type="text"
                       id="update-name"
-                      placeholder="e.g. GuTech"
-              />
+                      placeholder="e.g. GuTech">
 
             </div>
 
+
             <div>
 
-              <label for="update-location">
-                New Location
-              </label>
+              <label>New Location</label>
 
               <input
                       type="text"
                       id="update-location"
-                      placeholder="e.g. Muscat"
-              />
+                      placeholder="e.g. Muscat, Oman">
 
             </div>
+
 
             <div>
 
@@ -1601,9 +1344,14 @@
 
           </div>
 
-          <div class="alert" id="update-alert"></div>
 
-          <div class="result-box" id="update-result">
+          <div class="alert"
+               id="update-alert">
+          </div>
+
+
+          <div class="result-box"
+               id="update-result">
 
             <div class="result-title">
               Updated School
@@ -1627,18 +1375,8 @@
               </div>
 
               <div class="result-item">
-                <label>Active</label>
+                <label>Status</label>
                 <p id="ur-active"></p>
-              </div>
-
-              <div class="result-item">
-                <label>Created Date</label>
-                <p id="ur-created"></p>
-              </div>
-
-              <div class="result-item">
-                <label>Updated Date</label>
-                <p id="ur-updated"></p>
               </div>
 
             </div>
@@ -1649,10 +1387,8 @@
 
       </div>
 
-      <!-- ===================================================
-           DELETE SCHOOL
-           =================================================== -->
 
+      <!-- DELETE -->
       <div class="panel" id="panel-delete">
 
         <div class="card">
@@ -1663,24 +1399,22 @@
 
             <div>
 
-              <label for="delete-id">
-                School ID
-              </label>
+              <label>School ID</label>
 
               <input
                       type="number"
                       id="delete-id"
                       placeholder="e.g. 3"
-                      min="1"
-              />
+                      min="1">
 
             </div>
+
 
             <div>
 
               <button
                       class="btn btn-danger"
-                      onclick="confirmDelete()"
+                      onclick="deleteSchool()"
                       id="delete-btn">
                 🗑️ Delete School
               </button>
@@ -1689,7 +1423,414 @@
 
           </div>
 
-          <div class="alert" id="delete-alert"></div>
+
+          <div class="alert"
+               id="delete-alert">
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ADD STUDENT -->
+      <div class="panel" id="panel-add-student">
+
+        <div class="card">
+
+          <h2>➕ Add New Student</h2>
+
+          <div class="form-row">
+
+            <div>
+              <label>Student Name</label>
+
+              <input
+                      type="text"
+                      id="student-name"
+                      placeholder="e.g. Ahmed Ali">
+            </div>
+
+
+            <div>
+              <label>Major</label>
+
+              <input
+                      type="text"
+                      id="student-major"
+                      placeholder="e.g. Software">
+            </div>
+
+
+            <div>
+              <label>Gender</label>
+
+              <select id="student-gender">
+                <option value="">Select gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+
+
+            <div>
+              <label>Phone Number</label>
+
+              <input
+                      type="text"
+                      id="student-phone"
+                      placeholder="e.g. 91234567">
+            </div>
+
+
+            <div>
+              <label>Parent Name</label>
+
+              <input
+                      type="text"
+                      id="student-parent"
+                      placeholder="e.g. Ali Ahmed">
+            </div>
+
+
+            <div>
+              <label>School ID</label>
+
+              <input
+                      type="number"
+                      id="student-school-id"
+                      placeholder="e.g. 1"
+                      min="1">
+            </div>
+
+
+            <div>
+              <button
+                      class="btn btn-primary"
+                      onclick="addStudent()"
+                      id="add-student-btn">
+                ➕ Add Student
+              </button>
+            </div>
+
+          </div>
+
+          <div class="alert"
+               id="add-student-alert">
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ALL STUDENTS -->
+      <div class="panel" id="panel-all-students">
+
+        <div class="card">
+
+          <div class="toolbar">
+
+            <h2>📋 All Students</h2>
+
+            <button
+                    class="btn btn-outline"
+                    onclick="loadAllStudents()">
+              ↻ Refresh
+            </button>
+
+          </div>
+
+          <div
+                  class="table-wrap"
+                  id="all-students-table-container">
+
+            <div class="empty">
+              Click Refresh to load students.
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- SEARCH STUDENT -->
+      <div class="panel" id="panel-search-student">
+
+        <div class="card">
+
+          <h2>🔍 Search Student by ID</h2>
+
+          <div class="form-row">
+
+            <div>
+
+              <label>Student ID</label>
+
+              <input
+                      type="number"
+                      id="search-student-id"
+                      placeholder="e.g. 3"
+                      min="1">
+
+            </div>
+
+            <div>
+
+              <button
+                      class="btn btn-primary"
+                      onclick="searchStudent()">
+                🔍 Search
+              </button>
+
+            </div>
+
+          </div>
+
+          <div class="alert"
+               id="search-student-alert">
+          </div>
+
+
+          <div class="result-box"
+               id="search-student-result">
+
+            <div class="result-title">
+              Student Details
+            </div>
+
+            <div class="result-grid">
+
+              <div class="result-item">
+                <label>ID</label>
+                <p id="ss-id"></p>
+              </div>
+
+              <div class="result-item">
+                <label>Name</label>
+                <p id="ss-name"></p>
+              </div>
+
+              <div class="result-item">
+                <label>Gender</label>
+                <p id="ss-gender"></p>
+              </div>
+
+              <div class="result-item">
+                <label>Major</label>
+                <p id="ss-major"></p>
+              </div>
+
+              <div class="result-item">
+                <label>Phone Number</label>
+                <p id="ss-phone"></p>
+              </div>
+
+              <div class="result-item">
+                <label>Parent Name</label>
+                <p id="ss-parent"></p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- UPDATE STUDENT -->
+      <div class="panel" id="panel-update-student">
+
+        <div class="card">
+
+          <h2>✏️ Update Student</h2>
+
+          <div class="form-row">
+
+            <div>
+
+              <label>Student ID</label>
+
+              <input
+                      type="number"
+                      id="update-student-id"
+                      placeholder="e.g. 3"
+                      min="1">
+
+            </div>
+
+
+            <div>
+
+              <label>Student Name</label>
+
+              <input
+                      type="text"
+                      id="update-student-name"
+                      placeholder="e.g. Ahmed Ali">
+
+            </div>
+
+
+            <div>
+
+              <label>Major</label>
+
+              <input
+                      type="text"
+                      id="update-student-major"
+                      placeholder="e.g. Software">
+
+            </div>
+
+
+            <div>
+
+              <label>Gender</label>
+
+              <select id="update-student-gender">
+                <option value="">Select gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+
+            </div>
+
+
+            <div>
+
+              <label>Phone Number</label>
+
+              <input
+                      type="text"
+                      id="update-student-phone"
+                      placeholder="e.g. 91234567">
+
+            </div>
+
+
+            <div>
+
+              <label>Parent Name</label>
+
+              <input
+                      type="text"
+                      id="update-student-parent"
+                      placeholder="e.g. Ali Ahmed">
+
+            </div>
+
+
+            <div>
+
+              <button
+                      class="btn btn-primary"
+                      onclick="updateStudent()"
+                      id="update-student-btn">
+                ✏️ Update Student
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div class="alert"
+               id="update-student-alert">
+          </div>
+
+
+          <div class="result-box"
+               id="update-student-result">
+
+            <div class="result-title">
+              Updated Student
+            </div>
+
+            <div class="result-grid">
+
+              <div class="result-item">
+                <label>ID</label>
+                <p id="us-id"></p>
+              </div>
+
+              <div class="result-item">
+                <label>Name</label>
+                <p id="us-name"></p>
+              </div>
+
+              <div class="result-item">
+                <label>Gender</label>
+                <p id="us-gender"></p>
+              </div>
+
+              <div class="result-item">
+                <label>Major</label>
+                <p id="us-major"></p>
+              </div>
+
+              <div class="result-item">
+                <label>Phone Number</label>
+                <p id="us-phone"></p>
+              </div>
+
+              <div class="result-item">
+                <label>Parent Name</label>
+                <p id="us-parent"></p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- DELETE STUDENT -->
+      <div class="panel" id="panel-delete-student">
+
+        <div class="card">
+
+          <h2>🗑️ Delete Student</h2>
+
+          <div class="form-row">
+
+            <div>
+
+              <label>Student ID</label>
+
+              <input
+                      type="number"
+                      id="delete-student-id"
+                      placeholder="e.g. 3"
+                      min="1">
+
+            </div>
+
+
+            <div>
+
+              <button
+                      class="btn btn-danger"
+                      onclick="deleteStudent()"
+                      id="delete-student-btn">
+                🗑️ Delete Student
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div class="alert"
+               id="delete-student-alert">
+          </div>
 
         </div>
 
@@ -1698,37 +1839,190 @@
     </main>
 
   </div>
-  ```
 
 </div>
 
-<!-- =========================================================
-     JAVASCRIPT
-     ========================================================= -->
 
 <script>
 
-  /* =========================================================
-     CONFIGURATION
-     ========================================================= */
+  /*
+   * =========================================================
+   * BACKEND URL
+   * =========================================================
+   */
 
   const BASE_URL = "http://192.168.100.105:8080";
 
 
-  /* =========================================================
-     MOBILE SIDEBAR
-     ========================================================= */
+  /*
+   * =========================================================
+   * HELPER: READ ERROR FROM SPRING BOOT
+   * =========================================================
+   */
 
-  function toggleSidebar() {
-    document
-            .getElementById("sidebar")
-            .classList.toggle("open");
+  async function getErrorMessage(response) {
+
+    const text = await response.text();
+
+    if (!text) {
+      return `Server returned ${response.status}`;
+    }
+
+    try {
+
+      const data = JSON.parse(text);
+
+      if (data.message) {
+        return data.message;
+      }
+
+      if (data.error) {
+        return data.error;
+      }
+
+      if (data.errors) {
+
+        if (Array.isArray(data.errors)) {
+          return data.errors.join("\n");
+        }
+
+        return JSON.stringify(data.errors);
+      }
+
+      return JSON.stringify(data);
+
+    } catch {
+
+      return text;
+    }
   }
 
 
-  /* =========================================================
-     TAB NAVIGATION
-     ========================================================= */
+  /*
+   * =========================================================
+   * HELPER: SAFE HTML ESCAPING
+   * (prevents school names/locations from breaking the page
+   *  when injected via innerHTML)
+   * =========================================================
+   */
+
+  function escapeHtml(value) {
+
+    if (value === null || value === undefined) {
+      return "—";
+    }
+
+    return String(value)
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#39;");
+  }
+
+
+  /*
+   * =========================================================
+   * HELPER: SAFE RESPONSE PARSER
+   * Handles JSON, plain text, and empty bodies without
+   * assuming which one a given endpoint will return.
+   * =========================================================
+   */
+
+  async function parseResponse(response) {
+
+    const text = await response.text();
+
+    if (!text) {
+      return null;
+    }
+
+    try {
+      return JSON.parse(text);
+    } catch {
+      return text;
+    }
+  }
+
+
+  /*
+   * =========================================================
+   * HELPER: SCHOOL STATUS
+   * The School entity may or may not expose an active/status
+   * field. We never invent one — if it isn't present in the
+   * data returned by the backend, we show "Unknown" instead
+   * of pretending every school is Active.
+   * =========================================================
+   */
+
+  function getStatusField(school) {
+
+    if (!school || typeof school !== "object") {
+      return undefined;
+    }
+
+    if ("active" in school) return school.active;
+    if ("isActive" in school) return school.isActive;
+    if ("status" in school) return school.status;
+
+    return undefined;
+  }
+
+
+  function isActiveStatus(status) {
+
+    return (
+            status === true ||
+            status === "true" ||
+            status === "ACTIVE" ||
+            status === "Active"
+    );
+  }
+
+
+  function statusBadgeHtml(school) {
+
+    const status = getStatusField(school);
+
+    if (status === undefined) {
+
+      return `<span class="badge" style="background:rgba(148,163,184,0.18);color:#475569;">
+                Unknown
+             </span>`;
+    }
+
+    if (isActiveStatus(status)) {
+      return `<span class="badge badge-yes">
+                Active
+             </span>`;
+    }
+
+    return `<span class="badge" style="background:rgba(220,38,38,0.10);color:#b91c1c;">
+                Inactive
+             </span>`;
+  }
+
+
+  /*
+   * =========================================================
+   * SIDEBAR
+   * =========================================================
+   */
+
+  function toggleSidebar() {
+
+    document
+            .getElementById("sidebar")
+            .classList.toggle("open");
+
+  }
+
+
+  /*
+   * =========================================================
+   * TAB NAVIGATION
+   * =========================================================
+   */
 
   function showTab(name) {
 
@@ -1738,15 +2032,21 @@
               panel.classList.remove("active");
             });
 
+
     document
             .querySelectorAll("nav button")
             .forEach(button => {
               button.classList.remove("active");
             });
 
-    document
-            .getElementById("panel-" + name)
-            .classList.add("active");
+
+    const panel =
+            document.getElementById("panel-" + name);
+
+    if (panel) {
+      panel.classList.add("active");
+    }
+
 
     const tabs = [
       "dashboard",
@@ -1754,28 +2054,46 @@
       "all",
       "search",
       "update",
-      "delete"
+      "delete",
+      "add-student",
+      "all-students",
+      "search-student",
+      "update-student",
+      "delete-student"
     ];
+
 
     const index = tabs.indexOf(name);
 
     if (index !== -1) {
+
       document
               .querySelectorAll("nav button")[index]
               .classList.add("active");
+
     }
 
+
     const titles = {
+
       dashboard: "Dashboard",
       add: "Add School",
       all: "All Schools",
       search: "Search School",
       update: "Update School",
-      delete: "Delete School"
+      delete: "Delete School",
+      "add-student": "Add Student",
+      "all-students": "All Students",
+      "search-student": "Search Student",
+      "update-student": "Update Student",
+      "delete-student": "Delete Student"
+
     };
 
-    document.getElementById("page-title").textContent =
-            titles[name] || "Dashboard";
+
+    document.getElementById("page-title")
+            .textContent = titles[name];
+
 
     if (name === "all") {
       loadAllSchools();
@@ -1785,168 +2103,131 @@
       loadDashboard();
     }
 
+    if (name === "all-students") {
+      loadAllStudents();
+    }
+
+
     if (window.innerWidth <= 800) {
+
       document
               .getElementById("sidebar")
               .classList.remove("open");
+
     }
+
   }
 
 
-  /* =========================================================
-     DATE FORMATTER
-     ========================================================= */
-
-  function fmtDate(date) {
-
-    if (!date) {
-      return "—";
-    }
-
-    try {
-      return new Date(date).toLocaleString();
-    } catch {
-      return date;
-    }
-  }
-
-
-  /* =========================================================
-     ALERT HELPERS
-     ========================================================= */
+  /*
+   * =========================================================
+   * ALERT
+   * =========================================================
+   */
 
   function showAlert(id, message, type) {
 
-    const element = document.getElementById(id);
+    const element =
+            document.getElementById(id);
 
     element.textContent = message;
 
     element.className =
             "alert show alert-" + type;
+
   }
 
 
   function hideAlert(id) {
 
-    const element = document.getElementById(id);
+    const element =
+            document.getElementById(id);
 
     element.className = "alert";
+
     element.textContent = "";
+
   }
 
 
-  /* =========================================================
-     TABLE BUILDER
-     ========================================================= */
+  /*
+   * =========================================================
+   * BUILD TABLE
+   * =========================================================
+   */
 
   function buildTable(schools) {
 
-    if (!schools || schools.length === 0) {
+    if (!Array.isArray(schools) || schools.length === 0) {
 
       return `
-          <div class="empty">
-            <div class="empty-icon">🏫</div>
-            No schools found.
-          </div>
-        `;
+                <div class="empty">
+                    <div class="empty-icon">🏫</div>
+                    No schools found.
+                </div>
+            `;
+
     }
 
-    const rows = schools.map(s => {
+
+    const rows = schools.map(school => {
 
       return `
-          <tr>
+                <tr>
 
-            <td>${s.id ?? "—"}</td>
+                    <td>
+                        ${escapeHtml(school.schoolId)}
+                    </td>
 
-            <td>
-              <strong>${s.name ?? "—"}</strong>
-            </td>
+                    <td>
+                        <strong>
+                            ${escapeHtml(school.schoolName)}
+                        </strong>
+                    </td>
 
-            <td>
-              ${s.location ?? "—"}
-            </td>
+                    <td>
+                        ${escapeHtml(school.schoolLocation)}
+                    </td>
 
-            <td>
-              <span class="badge ${
-              s.isActive
-                      ? "badge-yes"
-                      : "badge-no"
-      }">
-                ${s.isActive ? "Active" : "Inactive"}
-              </span>
-            </td>
+                    <td>
+                        ${statusBadgeHtml(school)}
+                    </td>
 
-            <td>
-              ${fmtDate(s.createdDate)}
-            </td>
-
-            <td>
-              ${fmtDate(s.updatedDate)}
-            </td>
-
-          </tr>
-        `;
+                </tr>
+            `;
 
     }).join("");
 
 
     return `
-        <table>
+            <table>
 
-          <thead>
+                <thead>
 
-            <tr>
-              <th>ID</th>
-              <th>School Name</th>
-              <th>Location</th>
-              <th>Status</th>
-              <th>Created</th>
-              <th>Updated</th>
-            </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>School Name</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                    </tr>
 
-          </thead>
+                </thead>
 
-          <tbody>
-            ${rows}
-          </tbody>
+                <tbody>
+                    ${rows}
+                </tbody>
 
-        </table>
-      `;
+            </table>
+        `;
+
   }
 
 
-  /* =========================================================
-     UPDATE DASHBOARD STATISTICS
-     ========================================================= */
-
-  function updateStatistics(schools) {
-
-    if (!schools) {
-      return;
-    }
-
-    const total = schools.length;
-
-    const active = schools.filter(
-            school => school.isActive
-    ).length;
-
-    const inactive = total - active;
-
-    document.getElementById("total-schools").textContent =
-            total;
-
-    document.getElementById("active-schools").textContent =
-            active;
-
-    document.getElementById("inactive-schools").textContent =
-            inactive;
-  }
-
-
-  /* =========================================================
-     LOAD DASHBOARD
-     ========================================================= */
+  /*
+   * =========================================================
+   * DASHBOARD
+   * =========================================================
+   */
 
   async function loadDashboard() {
 
@@ -1955,30 +2236,92 @@
                     "dash-table-container"
             );
 
+
     container.innerHTML = `
-        <div class="empty">
-          Loading schools…
-        </div>
-      `;
+            <div class="empty">
+                Loading schools…
+            </div>
+        `;
+
 
     try {
 
-      const response = await fetch(
-              `${BASE_URL}/school/getAll`
-      );
+      const response =
+              await fetch(
+                      `${BASE_URL}/school/getAll`
+              );
+
 
       if (!response.ok) {
+
         throw new Error(
-                "Server error " + response.status
+                await getErrorMessage(response)
         );
+
       }
 
-      const data = await response.json();
 
-      updateStatistics(data);
+      const data =
+              await response.json();
+
+
+      const schools =
+              Array.isArray(data)
+                      ? data
+                      : [];
+
+
+      document.getElementById(
+              "total-schools"
+      ).textContent = schools.length;
+
+
+      /*
+       * Only compute Active/Inactive counts if the backend
+       * actually includes a status-like field on the school
+       * objects. Otherwise, don't invent it.
+       */
+
+      const hasStatusField =
+              schools.some(
+                      school => getStatusField(school) !== undefined
+              );
+
+
+      if (hasStatusField) {
+
+        const activeCount =
+                schools.filter(
+                        school => isActiveStatus(getStatusField(school))
+                ).length;
+
+
+        document.getElementById(
+                "active-schools"
+        ).textContent = activeCount;
+
+
+        document.getElementById(
+                "inactive-schools"
+        ).textContent = schools.length - activeCount;
+
+      } else {
+
+        document.getElementById(
+                "active-schools"
+        ).textContent = "N/A";
+
+
+        document.getElementById(
+                "inactive-schools"
+        ).textContent = "N/A";
+
+      }
+
 
       container.innerHTML =
-              buildTable(data);
+              buildTable(schools);
+
 
     } catch (error) {
 
@@ -1986,29 +2329,106 @@
               "total-schools"
       ).textContent = "—";
 
+
       document.getElementById(
               "active-schools"
       ).textContent = "—";
+
 
       document.getElementById(
               "inactive-schools"
       ).textContent = "—";
 
+
       container.innerHTML = `
-          <div class="empty">
-            <div class="empty-icon">⚠️</div>
-            <strong>Could not connect to API.</strong>
-            <br>
-            <small>${error.message}</small>
-          </div>
-        `;
+                <div class="empty">
+
+                    <div class="empty-icon">
+                        ⚠️
+                    </div>
+
+                    <strong>
+                        Could not load schools.
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        ${error.message}
+                    </small>
+
+                </div>
+            `;
+
     }
+
+
+    /*
+     * Student count is loaded independently so a failure on
+     * either the School or Student API doesn't block the other.
+     */
+
+    loadStudentCountForDashboard();
+
   }
 
 
-  /* =========================================================
-     LOAD ALL SCHOOLS
-     ========================================================= */
+  /*
+   * =========================================================
+   * STUDENT COUNT (DASHBOARD)
+   * =========================================================
+   */
+
+  async function loadStudentCountForDashboard() {
+
+    try {
+
+      const response =
+              await fetch(
+                      `${BASE_URL}/student/getAll`
+              );
+
+
+      if (!response.ok) {
+
+        throw new Error(
+                await getErrorMessage(response)
+        );
+
+      }
+
+
+      const data =
+              await response.json();
+
+
+      const students =
+              Array.isArray(data)
+                      ? data
+                      : [];
+
+
+      document.getElementById(
+              "total-students"
+      ).textContent = students.length;
+
+
+    } catch (error) {
+
+      document.getElementById(
+              "total-students"
+      ).textContent = "—";
+
+    }
+
+  }
+
+
+  /*
+   * =========================================================
+   * ALL SCHOOLS
+   * =========================================================
+   */
 
   async function loadAllSchools() {
 
@@ -2017,50 +2437,76 @@
                     "all-table-container"
             );
 
+
     container.innerHTML = `
-        <div class="empty">
-          Loading schools…
-        </div>
-      `;
+            <div class="empty">
+                Loading schools…
+            </div>
+        `;
+
 
     try {
 
-      const response = await fetch(
-              `${BASE_URL}/school/getAll`
-      );
+      const response =
+              await fetch(
+                      `${BASE_URL}/school/getAll`
+              );
+
 
       if (!response.ok) {
+
         throw new Error(
-                "Server error " + response.status
+                await getErrorMessage(response)
         );
+
       }
 
-      const data = await response.json();
+
+      const data =
+              await response.json();
+
 
       container.innerHTML =
               buildTable(data);
 
+
     } catch (error) {
 
       container.innerHTML = `
-          <div class="empty">
-            <div class="empty-icon">⚠️</div>
-            <strong>Could not connect to API.</strong>
-            <br>
-            <small>${error.message}</small>
-          </div>
-        `;
+                <div class="empty">
+
+                    <div class="empty-icon">
+                        ⚠️
+                    </div>
+
+                    <strong>
+                        Could not load schools.
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        ${error.message}
+                    </small>
+
+                </div>
+            `;
+
     }
+
   }
 
 
-  /* =========================================================
-     ADD SCHOOL
-     ========================================================= */
+  /*
+   * =========================================================
+   * ADD SCHOOL
+   * =========================================================
+   */
 
   async function addSchool() {
 
     hideAlert("add-alert");
+
 
     const name =
             document
@@ -2068,12 +2514,17 @@
                     .value
                     .trim();
 
+
     const location =
             document
                     .getElementById("add-location")
                     .value
                     .trim();
 
+
+    /*
+     * VALIDATION FIRST
+     */
 
     if (!name || !location) {
 
@@ -2087,42 +2538,112 @@
     }
 
 
+    if (name.length < 3 || name.length > 20) {
+
+      showAlert(
+              "add-alert",
+              `School name must be between 3 and 20 characters. Current length: ${name.length}`,
+              "error"
+      );
+
+      return;
+    }
+
+
+    if (location.length < 10 || location.length > 50) {
+
+      showAlert(
+              "add-alert",
+              `Location must be between 10 and 50 characters. Current length: ${location.length}`,
+              "error"
+      );
+
+      return;
+    }
+
+
     const button =
             document.getElementById("add-btn");
 
-    button.innerHTML = `
-        <span class="spinner"></span>
-        Adding…
-      `;
 
     button.disabled = true;
+
+    button.innerHTML =
+            `<span class="spinner"></span> Adding…`;
 
 
     try {
 
-      const response = await fetch(
-              `${BASE_URL}/school/add?schoolName=${encodeURIComponent(name)}&location=${encodeURIComponent(location)}`,
-              {
-                method: "POST"
-              }
+      /*
+       * IMPORTANT:
+       *
+       * This must match:
+       *
+       * @RequestBody SchoolDTO
+       *
+       */
+
+      const schoolData = {
+
+        schoolName: name,
+
+        schoolLocation: location
+
+      };
+
+
+      console.log(
+              "Sending POST:",
+              schoolData
       );
+
+
+      const response =
+              await fetch(
+                      `${BASE_URL}/school/add`,
+                      {
+                        method: "POST",
+
+                        headers: {
+                          "Content-Type":
+                                  "application/json",
+                          "Accept":
+                                  "application/json"
+                        },
+
+                        body:
+                                JSON.stringify(schoolData)
+                      }
+              );
 
 
       if (!response.ok) {
 
         throw new Error(
-                "Server error " + response.status
+                await getErrorMessage(response)
         );
+
       }
 
 
-      const id =
-              await response.text();
+      const result =
+              await parseResponse(response);
+
+
+      let newId = null;
+
+      if (result && typeof result === "object") {
+        newId = result.schoolId ?? result.id ?? null;
+      } else if (result !== null && result !== "") {
+        newId = result;
+      }
 
 
       showAlert(
               "add-alert",
-              `School added successfully! New School ID: ${id}`,
+              newId !== null
+                      ? `School added successfully! New School ID: ${newId}`
+                      : "School added successfully!",
               "success"
       );
 
@@ -2131,39 +2652,52 @@
               "add-name"
       ).value = "";
 
+
       document.getElementById(
               "add-location"
       ).value = "";
 
 
-      loadDashboard();
+      await loadDashboard();
+
 
     } catch (error) {
 
+      console.error(
+              "ADD SCHOOL ERROR:",
+              error
+      );
+
+
       showAlert(
               "add-alert",
-              "Failed to add school. Check your API connection.\n" +
-              error.message,
+              `Failed to add school.\n\n${error.message}`,
               "error"
       );
 
+
     } finally {
+
+      button.disabled = false;
 
       button.innerHTML =
               "➕ Add School";
 
-      button.disabled = false;
     }
+
   }
 
 
-  /* =========================================================
-     SEARCH SCHOOL
-     ========================================================= */
+  /*
+   * =========================================================
+   * SEARCH SCHOOL
+   * =========================================================
+   */
 
   async function searchSchool() {
 
     hideAlert("search-alert");
+
 
     document
             .getElementById("search-result")
@@ -2191,16 +2725,18 @@
 
     try {
 
-      const response = await fetch(
-              `${BASE_URL}/school/getById?id=${encodeURIComponent(id)}`
-      );
+      const response =
+              await fetch(
+                      `${BASE_URL}/school/getById?id=${encodeURIComponent(id)}`
+              );
 
 
       if (!response.ok) {
 
         throw new Error(
-                "Server error " + response.status
+                await getErrorMessage(response)
         );
+
       }
 
 
@@ -2208,7 +2744,11 @@
               await response.json();
 
 
-      if (school.id === null) {
+      if (
+              !school ||
+              school.schoolId === null ||
+              school.schoolId === undefined
+      ) {
 
         showAlert(
                 "search-alert",
@@ -2222,48 +2762,26 @@
 
       document.getElementById(
               "sr-id"
-      ).textContent = school.id;
+      ).textContent =
+              school.schoolId;
 
 
       document.getElementById(
               "sr-name"
       ).textContent =
-              school.name ?? "—";
+              school.schoolName ?? "—";
 
 
       document.getElementById(
               "sr-location"
       ).textContent =
-              school.location ?? "—";
+              school.schoolLocation ?? "—";
 
 
       document.getElementById(
               "sr-active"
-      ).innerHTML = `
-          <span class="badge ${
-              school.isActive
-                      ? "badge-yes"
-                      : "badge-no"
-      }">
-            ${
-              school.isActive
-                      ? "Active"
-                      : "Inactive"
-      }
-          </span>
-        `;
-
-
-      document.getElementById(
-              "sr-created"
-      ).textContent =
-              fmtDate(school.createdDate);
-
-
-      document.getElementById(
-              "sr-updated"
-      ).textContent =
-              fmtDate(school.updatedDate);
+      ).innerHTML =
+              statusBadgeHtml(school);
 
 
       document
@@ -2273,23 +2791,33 @@
 
     } catch (error) {
 
+      console.error(
+              "SEARCH ERROR:",
+              error
+      );
+
+
       showAlert(
               "search-alert",
-              "Failed to search. Check your API connection.\n" +
-              error.message,
+              `Failed to search.\n\n${error.message}`,
               "error"
       );
+
     }
+
   }
 
 
-  /* =========================================================
-     UPDATE SCHOOL
-     ========================================================= */
+  /*
+   * =========================================================
+   * UPDATE SCHOOL
+   * =========================================================
+   */
 
   async function updateSchool() {
 
     hideAlert("update-alert");
+
 
     document
             .getElementById("update-result")
@@ -2302,11 +2830,13 @@
                     .value
                     .trim();
 
+
     const name =
             document
                     .getElementById("update-name")
                     .value
                     .trim();
+
 
     const location =
             document
@@ -2314,6 +2844,10 @@
                     .value
                     .trim();
 
+
+    /*
+     * VALIDATE BEFORE DISABLING BUTTON
+     */
 
     if (!id || !name || !location) {
 
@@ -2327,40 +2861,114 @@
     }
 
 
+    if (name.length < 3 || name.length > 20) {
+
+      showAlert(
+              "update-alert",
+              `School name must be between 3 and 20 characters. Current length: ${name.length}`,
+              "error"
+      );
+
+      return;
+    }
+
+
+    if (location.length < 10 || location.length > 50) {
+
+      showAlert(
+              "update-alert",
+              `Location must be between 10 and 50 characters. Current length: ${location.length}`,
+              "error"
+      );
+
+      return;
+    }
+
+
+    const schoolId =
+            Number(id);
+
+
+    if (!Number.isInteger(schoolId) ||
+            schoolId <= 0) {
+
+      showAlert(
+              "update-alert",
+              "School ID must be a valid positive number.",
+              "error"
+      );
+
+      return;
+    }
+
+
     const button =
             document.getElementById(
                     "update-btn"
             );
 
 
-    button.innerHTML = `
-        <span class="spinner"></span>
-        Updating…
-      `;
-
     button.disabled = true;
+
+    button.innerHTML =
+            `<span class="spinner"></span> Updating…`;
 
 
     try {
 
-      const response = await fetch(
-              `${BASE_URL}/school/update?id=${encodeURIComponent(id)}&updateName=${encodeURIComponent(name)}&updateLocation=${encodeURIComponent(location)}`,
-              {
-                method: "PUT"
-              }
+      const schoolData = {
+
+        schoolId: schoolId,
+
+        schoolName: name,
+
+        schoolLocation: location
+
+      };
+
+
+      console.log(
+              "Sending PUT:",
+              schoolData
       );
+
+
+      const response =
+              await fetch(
+                      `${BASE_URL}/school/update`,
+                      {
+                        method: "PUT",
+
+                        headers: {
+                          "Content-Type":
+                                  "application/json",
+                          "Accept":
+                                  "application/json"
+                        },
+
+                        body:
+                                JSON.stringify(schoolData)
+                      }
+              );
 
 
       if (!response.ok) {
 
         throw new Error(
-                "Server error " + response.status
+                await getErrorMessage(response)
         );
+
       }
 
 
+      const parsed =
+              await parseResponse(response);
+
+
       const school =
-              await response.json();
+              (parsed && typeof parsed === "object")
+                      ? parsed
+                      : null;
 
 
       showAlert(
@@ -2372,48 +2980,26 @@
 
       document.getElementById(
               "ur-id"
-      ).textContent = school.id;
+      ).textContent =
+              school?.schoolId ?? schoolId;
 
 
       document.getElementById(
               "ur-name"
       ).textContent =
-              school.name ?? "—";
+              school?.schoolName ?? name;
 
 
       document.getElementById(
               "ur-location"
       ).textContent =
-              school.location ?? "—";
+              school?.schoolLocation ?? location;
 
 
       document.getElementById(
               "ur-active"
-      ).innerHTML = `
-          <span class="badge ${
-              school.isActive
-                      ? "badge-yes"
-                      : "badge-no"
-      }">
-            ${
-              school.isActive
-                      ? "Active"
-                      : "Inactive"
-      }
-          </span>
-        `;
-
-
-      document.getElementById(
-              "ur-created"
-      ).textContent =
-              fmtDate(school.createdDate);
-
-
-      document.getElementById(
-              "ur-updated"
-      ).textContent =
-              fmtDate(school.updatedDate);
+      ).innerHTML =
+              statusBadgeHtml(school || {});
 
 
       document
@@ -2421,34 +3007,43 @@
               .classList.add("show");
 
 
-      loadDashboard();
+      await loadDashboard();
 
 
     } catch (error) {
 
+      console.error(
+              "UPDATE ERROR:",
+              error
+      );
+
+
       showAlert(
               "update-alert",
-              "Failed to update school. Check your API connection.\n" +
-              error.message,
+              `Failed to update school.\n\n${error.message}`,
               "error"
       );
 
 
     } finally {
 
+      button.disabled = false;
+
       button.innerHTML =
               "✏️ Update School";
 
-      button.disabled = false;
     }
+
   }
 
 
-  /* =========================================================
-     DELETE SCHOOL
-     ========================================================= */
+  /*
+   * =========================================================
+   * DELETE SCHOOL
+   * =========================================================
+   */
 
-  async function confirmDelete() {
+  async function deleteSchool() {
 
     hideAlert("delete-alert");
 
@@ -2472,9 +3067,26 @@
     }
 
 
+    const schoolId =
+            Number(id);
+
+
+    if (!Number.isInteger(schoolId) ||
+            schoolId <= 0) {
+
+      showAlert(
+              "delete-alert",
+              "School ID must be a valid positive number.",
+              "error"
+      );
+
+      return;
+    }
+
+
     const confirmed =
             window.confirm(
-                    `Are you sure you want to delete School ID ${id}? This action cannot be undone.`
+                    `Are you sure you want to delete School ID ${schoolId}?`
             );
 
 
@@ -2489,37 +3101,63 @@
             );
 
 
-    button.innerHTML = `
-        <span class="spinner"></span>
-        Deleting…
-      `;
-
     button.disabled = true;
+
+    button.innerHTML =
+            `<span class="spinner"></span> Deleting…`;
 
 
     try {
 
-      const response = await fetch(
-              `${BASE_URL}/school/deleteById?id=${encodeURIComponent(id)}`,
-              {
-                method: "DELETE"
-              }
-      );
+      const response =
+              await fetch(
+                      `${BASE_URL}/school/delete?id=${schoolId}`,
+                      {
+                        method: "DELETE",
+
+                        headers: {
+                          "Accept":
+                                  "application/json"
+                        }
+                      }
+              );
 
 
       if (!response.ok) {
 
         throw new Error(
-                "Server error " + response.status
+                await getErrorMessage(response)
         );
+
       }
 
 
+      /*
+       * The backend may respond with a boolean, plain text,
+       * JSON, or an empty body. A successful HTTP status
+       * (already checked above) is the real signal that the
+       * delete worked — we only treat the body as a failure
+       * signal if it *explicitly* says so.
+       */
+
       const result =
-              await response.text();
+              await parseResponse(response);
 
 
-      if (result.trim() === "true") {
+      const explicitlyFailed =
+              result === false ||
+              result === "false";
+
+
+      if (explicitlyFailed) {
+
+        showAlert(
+                "delete-alert",
+                "School could not be deleted. The ID may not exist.",
+                "error"
+        );
+
+      } else {
 
         showAlert(
                 "delete-alert",
@@ -2533,42 +3171,1112 @@
         ).value = "";
 
 
-        loadDashboard();
+        await loadDashboard();
 
-
-      } else {
-
-        showAlert(
-                "delete-alert",
-                "Failed to delete school. The ID may not exist.",
-                "error"
-        );
       }
 
 
     } catch (error) {
 
+      console.error(
+              "DELETE ERROR:",
+              error
+      );
+
+
       showAlert(
               "delete-alert",
-              "Failed to delete. Check your API connection.\n" +
-              error.message,
+              `Failed to delete school.\n\n${error.message}`,
               "error"
       );
 
 
     } finally {
 
+      button.disabled = false;
+
       button.innerHTML =
               "🗑️ Delete School";
 
-      button.disabled = false;
     }
+
   }
 
 
-  /* =========================================================
-     ENTER KEY SUPPORT
-     ========================================================= */
+  /*
+   * =========================================================
+   * BUILD STUDENT TABLE
+   * Note: GET /student/getAll does not return schoolId, so no
+   * School ID column is rendered.
+   * =========================================================
+   */
+
+  function buildStudentTable(students) {
+
+    if (!Array.isArray(students) || students.length === 0) {
+
+      return `
+                <div class="empty">
+                    <div class="empty-icon">🎓</div>
+                    No students found.
+                </div>
+            `;
+
+    }
+
+
+    const rows = students.map(student => {
+
+      return `
+                <tr>
+
+                    <td>
+                        ${escapeHtml(student.studentId)}
+                    </td>
+
+                    <td>
+                        <strong>
+                            ${escapeHtml(student.studentName)}
+                        </strong>
+                    </td>
+
+                    <td>
+                        ${escapeHtml(student.gender)}
+                    </td>
+
+                    <td>
+                        ${escapeHtml(student.major)}
+                    </td>
+
+                    <td>
+                        ${escapeHtml(student.phoneNumber)}
+                    </td>
+
+                    <td>
+                        ${escapeHtml(student.parentName)}
+                    </td>
+
+                </tr>
+            `;
+
+    }).join("");
+
+
+    return `
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Student Name</th>
+                        <th>Gender</th>
+                        <th>Major</th>
+                        <th>Phone Number</th>
+                        <th>Parent Name</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    ${rows}
+                </tbody>
+
+            </table>
+        `;
+
+  }
+
+
+  /*
+   * =========================================================
+   * ALL STUDENTS
+   * =========================================================
+   */
+
+  async function loadAllStudents() {
+
+    const container =
+            document.getElementById(
+                    "all-students-table-container"
+            );
+
+
+    container.innerHTML = `
+            <div class="empty">
+                Loading students…
+            </div>
+        `;
+
+
+    try {
+
+      const response =
+              await fetch(
+                      `${BASE_URL}/student/getAll`
+              );
+
+
+      if (!response.ok) {
+
+        throw new Error(
+                await getErrorMessage(response)
+        );
+
+      }
+
+
+      const data =
+              await response.json();
+
+
+      container.innerHTML =
+              buildStudentTable(data);
+
+
+    } catch (error) {
+
+      container.innerHTML = `
+                <div class="empty">
+
+                    <div class="empty-icon">
+                        ⚠️
+                    </div>
+
+                    <strong>
+                        Could not load students.
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        ${error.message}
+                    </small>
+
+                </div>
+            `;
+
+    }
+
+  }
+
+
+  /*
+   * =========================================================
+   * ADD STUDENT
+   * =========================================================
+   */
+
+  async function addStudent() {
+
+    hideAlert("add-student-alert");
+
+
+    const name =
+            document
+                    .getElementById("student-name")
+                    .value
+                    .trim();
+
+
+    const major =
+            document
+                    .getElementById("student-major")
+                    .value
+                    .trim();
+
+
+    const gender =
+            document
+                    .getElementById("student-gender")
+                    .value
+                    .trim();
+
+
+    const phone =
+            document
+                    .getElementById("student-phone")
+                    .value
+                    .trim();
+
+
+    const parent =
+            document
+                    .getElementById("student-parent")
+                    .value
+                    .trim();
+
+
+    const schoolIdRaw =
+            document
+                    .getElementById("student-school-id")
+                    .value
+                    .trim();
+
+
+    /*
+     * VALIDATION — mirrors the backend's @Valid rules on
+     * StudentDTO. schoolId has no explicit backend length
+     * validation, so we only check it's a valid positive
+     * integer (it's a Long used to look up the school).
+     */
+
+    if (!name || !major || !gender || !phone || !parent || !schoolIdRaw) {
+
+      showAlert(
+              "add-student-alert",
+              "Please fill in all fields.",
+              "error"
+      );
+
+      return;
+    }
+
+
+    if (name.length < 3 || name.length > 20) {
+
+      showAlert(
+              "add-student-alert",
+              `Student name must be between 3 and 20 characters. Current length: ${name.length}`,
+              "error"
+      );
+
+      return;
+    }
+
+
+    if (gender.length < 1 || gender.length > 10) {
+
+      showAlert(
+              "add-student-alert",
+              "Gender must be between 1 and 10 characters.",
+              "error"
+      );
+
+      return;
+    }
+
+
+    if (phone.length < 7 || phone.length > 15) {
+
+      showAlert(
+              "add-student-alert",
+              `Phone number must be between 7 and 15 characters. Current length: ${phone.length}`,
+              "error"
+      );
+
+      return;
+    }
+
+
+    if (parent.length < 7 || parent.length > 15) {
+
+      showAlert(
+              "add-student-alert",
+              `Parent name must be between 7 and 15 characters. Current length: ${parent.length}`,
+              "error"
+      );
+
+      return;
+    }
+
+
+    if (major.length < 2 || major.length > 15) {
+
+      showAlert(
+              "add-student-alert",
+              `Major must be between 2 and 15 characters. Current length: ${major.length}`,
+              "error"
+      );
+
+      return;
+    }
+
+
+    const schoolId =
+            Number(schoolIdRaw);
+
+
+    if (!Number.isInteger(schoolId) || schoolId <= 0) {
+
+      showAlert(
+              "add-student-alert",
+              "School ID must be a valid positive number.",
+              "error"
+      );
+
+      return;
+    }
+
+
+    const button =
+            document.getElementById("add-student-btn");
+
+
+    button.disabled = true;
+
+    button.innerHTML =
+            `<span class="spinner"></span> Adding…`;
+
+
+    try {
+
+      /*
+       * IMPORTANT:
+       *
+       * Must match StudentDTO exactly — no schoolId renaming,
+       * no invented fields.
+       */
+
+      const studentData = {
+
+        studentName: name,
+
+        major: major,
+
+        gender: gender,
+
+        phoneNumber: phone,
+
+        parentName: parent,
+
+        schoolId: schoolId
+
+      };
+
+
+      console.log(
+              "Sending POST:",
+              studentData
+      );
+
+
+      const response =
+              await fetch(
+                      `${BASE_URL}/student/add`,
+                      {
+                        method: "POST",
+
+                        headers: {
+                          "Content-Type":
+                                  "application/json",
+                          "Accept":
+                                  "application/json"
+                        },
+
+                        body:
+                                JSON.stringify(studentData)
+                      }
+              );
+
+
+      if (!response.ok) {
+
+        throw new Error(
+                await getErrorMessage(response)
+        );
+
+      }
+
+
+      /*
+       * Endpoint returns a raw Long (the new student ID).
+       * The service returns -1 when the given schoolId does
+       * not exist or is not active — that is NOT a success.
+       */
+
+      const result =
+              await parseResponse(response);
+
+
+      const newId =
+              Number(result);
+
+
+      if (newId === -1) {
+
+        showAlert(
+                "add-student-alert",
+                "Could not add student: the given School ID does not exist or is not active.",
+                "error"
+        );
+
+        return;
+      }
+
+
+      showAlert(
+              "add-student-alert",
+              `Student added successfully! New Student ID: ${result}`,
+              "success"
+      );
+
+
+      document.getElementById("student-name").value = "";
+      document.getElementById("student-major").value = "";
+      document.getElementById("student-gender").value = "";
+      document.getElementById("student-phone").value = "";
+      document.getElementById("student-parent").value = "";
+      document.getElementById("student-school-id").value = "";
+
+
+      await loadStudentCountForDashboard();
+
+
+      const allStudentsPanel =
+              document.getElementById("panel-all-students");
+
+      if (allStudentsPanel && allStudentsPanel.classList.contains("active")) {
+        await loadAllStudents();
+      }
+
+
+    } catch (error) {
+
+      console.error(
+              "ADD STUDENT ERROR:",
+              error
+      );
+
+
+      showAlert(
+              "add-student-alert",
+              `Failed to add student.\n\n${error.message}`,
+              "error"
+      );
+
+
+    } finally {
+
+      button.disabled = false;
+
+      button.innerHTML =
+              "➕ Add Student";
+
+    }
+
+  }
+
+
+  /*
+   * =========================================================
+   * SEARCH STUDENT
+   * =========================================================
+   */
+
+  async function searchStudent() {
+
+    hideAlert("search-student-alert");
+
+
+    document
+            .getElementById("search-student-result")
+            .classList.remove("show");
+
+
+    const id =
+            document
+                    .getElementById("search-student-id")
+                    .value
+                    .trim();
+
+
+    if (!id) {
+
+      showAlert(
+              "search-student-alert",
+              "Please enter a Student ID.",
+              "error"
+      );
+
+      return;
+    }
+
+
+    try {
+
+      const response =
+              await fetch(
+                      `${BASE_URL}/student/getById?id=${encodeURIComponent(id)}`
+              );
+
+
+      if (!response.ok) {
+
+        throw new Error(
+                await getErrorMessage(response)
+        );
+
+      }
+
+
+      const student =
+              await response.json();
+
+
+      /*
+       * The service returns an empty `new Student()` (rather
+       * than a 404) when the student is missing/inactive, so
+       * we detect that by checking for a missing studentId
+       * instead of trusting a 200 status alone.
+       */
+
+      if (
+              !student ||
+              student.studentId === null ||
+              student.studentId === undefined
+      ) {
+
+        showAlert(
+                "search-student-alert",
+                "Student not found.",
+                "error"
+        );
+
+        return;
+      }
+
+
+      document.getElementById(
+              "ss-id"
+      ).textContent =
+              student.studentId;
+
+
+      document.getElementById(
+              "ss-name"
+      ).textContent =
+              student.studentName ?? "—";
+
+
+      document.getElementById(
+              "ss-gender"
+      ).textContent =
+              student.gender ?? "—";
+
+
+      document.getElementById(
+              "ss-major"
+      ).textContent =
+              student.major ?? "—";
+
+
+      document.getElementById(
+              "ss-phone"
+      ).textContent =
+              student.phoneNumber ?? "—";
+
+
+      document.getElementById(
+              "ss-parent"
+      ).textContent =
+              student.parentName ?? "—";
+
+
+      document
+              .getElementById("search-student-result")
+              .classList.add("show");
+
+
+    } catch (error) {
+
+      console.error(
+              "SEARCH STUDENT ERROR:",
+              error
+      );
+
+
+      showAlert(
+              "search-student-alert",
+              `Failed to search.\n\n${error.message}`,
+              "error"
+      );
+
+    }
+
+  }
+
+
+  /*
+   * =========================================================
+   * UPDATE STUDENT
+   * =========================================================
+   */
+
+  async function updateStudent() {
+
+    hideAlert("update-student-alert");
+
+
+    document
+            .getElementById("update-student-result")
+            .classList.remove("show");
+
+
+    const id =
+            document
+                    .getElementById("update-student-id")
+                    .value
+                    .trim();
+
+
+    const name =
+            document
+                    .getElementById("update-student-name")
+                    .value
+                    .trim();
+
+
+    const major =
+            document
+                    .getElementById("update-student-major")
+                    .value
+                    .trim();
+
+
+    const gender =
+            document
+                    .getElementById("update-student-gender")
+                    .value
+                    .trim();
+
+
+    const phone =
+            document
+                    .getElementById("update-student-phone")
+                    .value
+                    .trim();
+
+
+    const parent =
+            document
+                    .getElementById("update-student-parent")
+                    .value
+                    .trim();
+
+
+    if (!id || !name || !major || !gender || !phone || !parent) {
+
+      showAlert(
+              "update-student-alert",
+              "Please fill in all fields.",
+              "error"
+      );
+
+      return;
+    }
+
+
+    if (name.length < 3 || name.length > 20) {
+
+      showAlert(
+              "update-student-alert",
+              `Student name must be between 3 and 20 characters. Current length: ${name.length}`,
+              "error"
+      );
+
+      return;
+    }
+
+
+    if (gender.length < 1 || gender.length > 10) {
+
+      showAlert(
+              "update-student-alert",
+              "Gender must be between 1 and 10 characters.",
+              "error"
+      );
+
+      return;
+    }
+
+
+    if (phone.length < 7 || phone.length > 15) {
+
+      showAlert(
+              "update-student-alert",
+              `Phone number must be between 7 and 15 characters. Current length: ${phone.length}`,
+              "error"
+      );
+
+      return;
+    }
+
+
+    if (parent.length < 7 || parent.length > 15) {
+
+      showAlert(
+              "update-student-alert",
+              `Parent name must be between 7 and 15 characters. Current length: ${parent.length}`,
+              "error"
+      );
+
+      return;
+    }
+
+
+    if (major.length < 2 || major.length > 15) {
+
+      showAlert(
+              "update-student-alert",
+              `Major must be between 2 and 15 characters. Current length: ${major.length}`,
+              "error"
+      );
+
+      return;
+    }
+
+
+    const studentId =
+            Number(id);
+
+
+    if (!Number.isInteger(studentId) || studentId < 0) {
+
+      showAlert(
+              "update-student-alert",
+              "Student ID must be a valid non-negative number.",
+              "error"
+      );
+
+      return;
+    }
+
+
+    const button =
+            document.getElementById("update-student-btn");
+
+
+    button.disabled = true;
+
+    button.innerHTML =
+            `<span class="spinner"></span> Updating…`;
+
+
+    try {
+
+      /*
+       * IMPORTANT: schoolId is NOT used by the update service,
+       * so it is intentionally left out of this request body.
+       */
+
+      const studentData = {
+
+        studentId: studentId,
+
+        studentName: name,
+
+        major: major,
+
+        gender: gender,
+
+        phoneNumber: phone,
+
+        parentName: parent
+
+      };
+
+
+      console.log(
+              "Sending PUT:",
+              studentData
+      );
+
+
+      const response =
+              await fetch(
+                      `${BASE_URL}/student/update`,
+                      {
+                        method: "PUT",
+
+                        headers: {
+                          "Content-Type":
+                                  "application/json",
+                          "Accept":
+                                  "application/json"
+                        },
+
+                        body:
+                                JSON.stringify(studentData)
+                      }
+              );
+
+
+      if (!response.ok) {
+
+        throw new Error(
+                await getErrorMessage(response)
+        );
+
+      }
+
+
+      const student =
+              await response.json();
+
+
+      showAlert(
+              "update-student-alert",
+              "Student updated successfully!",
+              "success"
+      );
+
+
+      document.getElementById(
+              "us-id"
+      ).textContent =
+              student?.studentId ?? studentId;
+
+
+      document.getElementById(
+              "us-name"
+      ).textContent =
+              student?.studentName ?? name;
+
+
+      document.getElementById(
+              "us-gender"
+      ).textContent =
+              student?.gender ?? gender;
+
+
+      document.getElementById(
+              "us-major"
+      ).textContent =
+              student?.major ?? major;
+
+
+      document.getElementById(
+              "us-phone"
+      ).textContent =
+              student?.phoneNumber ?? phone;
+
+
+      document.getElementById(
+              "us-parent"
+      ).textContent =
+              student?.parentName ?? parent;
+
+
+      document
+              .getElementById("update-student-result")
+              .classList.add("show");
+
+
+      const allStudentsPanel =
+              document.getElementById("panel-all-students");
+
+      if (allStudentsPanel && allStudentsPanel.classList.contains("active")) {
+        await loadAllStudents();
+      }
+
+
+      await loadStudentCountForDashboard();
+
+
+    } catch (error) {
+
+      console.error(
+              "UPDATE STUDENT ERROR:",
+              error
+      );
+
+
+      showAlert(
+              "update-student-alert",
+              `Failed to update student.\n\n${error.message}`,
+              "error"
+      );
+
+
+    } finally {
+
+      button.disabled = false;
+
+      button.innerHTML =
+              "✏️ Update Student";
+
+    }
+
+  }
+
+
+  /*
+   * =========================================================
+   * DELETE STUDENT
+   * =========================================================
+   */
+
+  async function deleteStudent() {
+
+    hideAlert("delete-student-alert");
+
+
+    const id =
+            document
+                    .getElementById("delete-student-id")
+                    .value
+                    .trim();
+
+
+    if (!id) {
+
+      showAlert(
+              "delete-student-alert",
+              "Please enter a Student ID.",
+              "error"
+      );
+
+      return;
+    }
+
+
+    const studentId =
+            Number(id);
+
+
+    if (!Number.isInteger(studentId) || studentId <= 0) {
+
+      showAlert(
+              "delete-student-alert",
+              "Student ID must be a valid positive number.",
+              "error"
+      );
+
+      return;
+    }
+
+
+    const confirmed =
+            window.confirm(
+                    `Are you sure you want to delete Student ID ${studentId}?`
+            );
+
+
+    if (!confirmed) {
+      return;
+    }
+
+
+    const button =
+            document.getElementById("delete-student-btn");
+
+
+    button.disabled = true;
+
+    button.innerHTML =
+            `<span class="spinner"></span> Deleting…`;
+
+
+    try {
+
+      const response =
+              await fetch(
+                      `${BASE_URL}/student/delete?id=${studentId}`,
+                      {
+                        method: "DELETE",
+
+                        headers: {
+                          "Accept":
+                                  "application/json"
+                        }
+                      }
+              );
+
+
+      if (!response.ok) {
+
+        throw new Error(
+                await getErrorMessage(response)
+        );
+
+      }
+
+
+      /*
+       * The endpoint returns an explicit Boolean (this is a
+       * soft delete: isActive = false server-side). We only
+       * treat it as a success when the value is literally
+       * true — we never assume.
+       */
+
+      const result =
+              await parseResponse(response);
+
+
+      const succeeded =
+              result === true ||
+              result === "true";
+
+
+      if (succeeded) {
+
+        showAlert(
+                "delete-student-alert",
+                "Student deleted successfully.",
+                "success"
+        );
+
+
+        document.getElementById(
+                "delete-student-id"
+        ).value = "";
+
+
+        const allStudentsPanel =
+                document.getElementById("panel-all-students");
+
+        if (allStudentsPanel && allStudentsPanel.classList.contains("active")) {
+          await loadAllStudents();
+        }
+
+
+        await loadStudentCountForDashboard();
+
+
+      } else {
+
+        showAlert(
+                "delete-student-alert",
+                "Student could not be deleted. The ID may not exist.",
+                "error"
+        );
+
+      }
+
+
+    } catch (error) {
+
+      console.error(
+              "DELETE STUDENT ERROR:",
+              error
+      );
+
+
+      showAlert(
+              "delete-student-alert",
+              `Failed to delete student.\n\n${error.message}`,
+              "error"
+      );
+
+
+    } finally {
+
+      button.disabled = false;
+
+      button.innerHTML =
+              "🗑️ Delete Student";
+
+    }
+
+  }
+
+
+  /*
+   * =========================================================
+   * ENTER KEY
+   * =========================================================
+   */
 
   document.addEventListener(
           "keydown",
@@ -2578,14 +4286,17 @@
               return;
             }
 
+
             const activePanel =
                     document.querySelector(
                             ".panel.active"
                     );
 
+
             if (!activePanel) {
               return;
             }
+
 
             switch (activePanel.id) {
 
@@ -2602,16 +4313,36 @@
                 break;
 
               case "panel-delete":
-                confirmDelete();
+                deleteSchool();
                 break;
+
+              case "panel-add-student":
+                addStudent();
+                break;
+
+              case "panel-search-student":
+                searchStudent();
+                break;
+
+              case "panel-update-student":
+                updateStudent();
+                break;
+
+              case "panel-delete-student":
+                deleteStudent();
+                break;
+
             }
+
           }
   );
 
 
-  /* =========================================================
-     BOOT
-     ========================================================= */
+  /*
+   * =========================================================
+   * START
+   * =========================================================
+   */
 
   loadDashboard();
 
