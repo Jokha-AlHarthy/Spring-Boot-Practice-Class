@@ -15,6 +15,4 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     @Query("SELECT s FROM Student s WHERE s.isActive=true AND s.id=:abc")
     Student getById(@Param("abc") Long id);
-
-
 }
