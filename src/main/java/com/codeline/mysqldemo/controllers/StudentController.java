@@ -3,6 +3,7 @@ package com.codeline.mysqldemo.controllers;
 import com.codeline.mysqldemo.dto.StudentDTO;
 import com.codeline.mysqldemo.entities.Student;
 import com.codeline.mysqldemo.services.StudentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,8 +20,8 @@ public class StudentController {
 
     //Add API
     @PostMapping("add")
-    public Long addStudent(@RequestParam String name, @RequestParam String major, @RequestParam String gender, @RequestParam String phoneNumber, @RequestParam String parentName, @RequestParam Long schoolId){
-        return studentService.addStudent(name, major, gender, phoneNumber, parentName, schoolId);
+    public Long addStudent(@Valid @RequestBody StudentDTO dto){
+        return studentService.addStudent(dto.getStudentName(), dto.getMajor() , dto.getGender(), dto.getPhoneNumber(), dto.getParentName(), dto.getSchoolId());
     }
 
     //GetAll API
@@ -38,8 +39,8 @@ public class StudentController {
 
     //Update API
     @PutMapping("update")
-    public StudentDTO updateStudent(@RequestParam Long id, @RequestParam String name, @RequestParam String major, @RequestParam String gender, @RequestParam String phoneNumber, @RequestParam String parentName){
-        return StudentDTO.convertToDTO(studentService.updatedStudent(id, name, major, gender, phoneNumber, parentName));
+    public StudentDTO updateStudent(@Valid @RequestBody StudentDTO dto){
+        return StudentDTO.convertToDTO(studentService.updatedStudent(dto.getStudentId(), dto.getStudentName(), dto.getMajor(), dto.getGender(), dto.getPhoneNumber(), dto.getParentName()));
     }
 
     //Delete API
