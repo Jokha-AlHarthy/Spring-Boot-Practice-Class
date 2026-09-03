@@ -4,6 +4,7 @@ import com.codeline.mysqldemo.dto.SchoolDTO;
 import com.codeline.mysqldemo.entities.School;
 import com.codeline.mysqldemo.repositories.SchoolRepository;
 import com.codeline.mysqldemo.services.SchoolService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,9 +22,10 @@ public class SchoolController {
     }
 
     //Add API
+    //valid used to see the validation of the data
     @PostMapping("add")
-    public Long addSchool(@RequestParam String schoolName, @RequestParam String location){
-        return schoolService.addSchool(schoolName, location);
+    public Long addSchool(@Valid @RequestBody SchoolDTO dto){
+        return schoolService.addSchool(dto.getSchoolName(), dto.getSchoolLocation());
     }
 
     //GetAll API
@@ -40,9 +42,10 @@ public class SchoolController {
     }
 
     //Update API
+    //valid used to see the validation of the data
     @PutMapping("update")
-    public SchoolDTO updateSchool(@RequestParam Long id, @RequestParam String updateName, @RequestParam String updateLocation){
-        return SchoolDTO.convertToDTO(schoolService.updatedSchool(id, updateName, updateLocation));
+    public SchoolDTO updateSchool(@Valid @RequestBody SchoolDTO dto){
+        return SchoolDTO.convertToDTO(schoolService.updatedSchool(dto.getSchoolId(), dto.getSchoolName(), dto.getSchoolLocation()));
     }
 
     //Delete API
@@ -50,7 +53,4 @@ public class SchoolController {
     public Boolean deleteSchoolById(@RequestParam Long id) {
         return schoolService.deleteById(id);
     }
-
-
-
 }
