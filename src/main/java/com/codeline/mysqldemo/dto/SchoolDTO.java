@@ -1,6 +1,10 @@
 package com.codeline.mysqldemo.dto;
 
 import com.codeline.mysqldemo.entities.School;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -8,9 +12,16 @@ import java.util.List;
 
 @Data
 @Builder //used to create objects and set their values.
+@NoArgsConstructor
+@AllArgsConstructor
 public class SchoolDTO {
+    @PositiveOrZero
     private Long schoolId;
+    @NotBlank(message = "You can't leave the school name to be null")
+    @Size(min=3, max = 20, message = "School name has to be between 3 to 20 characters")
     private String schoolName;
+    @NotBlank(message = "You can't leave the school location to be null")
+    @Size(min=10, max = 50, message = "School location has to be between 10 to 50 characters")
     private String schoolLocation;
 
     public static SchoolDTO convertToDTO(School entity){
